@@ -158,9 +158,23 @@ QT6_PKGS = " \
     qtimageformats \
     qtwayland \
     qttranslations \
-    qtcharts \
     qtquick3d \
     qtquicktimeline \
+    qtsensors \
+    qtmultimedia \
+    qtremoteobjects \
+    qtpositioning \
+    qtscxml \
+    qtwebchannel \
+    qtdatavis3d \
+    qtopcua \
+    qtconnectivity \
+    qtinterfaceframework \
+    qtapplicationmanager \
+    qtdeviceutilities \
+    qtwebview \
+    qtlanguageserver \
+    qtwebengine \
 "
 
 IMAGE_INSTALL += " \
@@ -173,9 +187,6 @@ IMAGE_INSTALL += " \
     ${FONTS_DEV} \
     ${TSLIB} \
     ${TSLIB_DEV} \
-    ${SDR} \
-    ${GPS} \
-    ${AIRNET} \
     ${OPENMP} \
     ${OPENMP_DEV} \
     ${MQTT} \

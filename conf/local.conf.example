@@ -1,48 +1,44 @@
-LICENSE_FLAGS_WHITELIST = "commercial"
+LICENSE_FLAGS_ACCEPTED = "commercial"
 
 # sysvinit
 #VIRTUAL-RUNTIME_init_manager = "sysvinit"
 
 # Switch to systemd
-DISTRO_FEATURES_append = " systemd"
-DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
-VIRTUAL-RUNTIME_init_manager = "systemd"
-VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
+DISTRO_FEATURES:append = " systemd"
+DISTRO_FEATURES:BACKFILL_CONSIDERED += "sysvinit"
+VIRTUAL-RUNTIME:init:manager = "systemd"
+VIRTUAL-RUNTIME:initscripts = "systemd-compat-units"
 
 # Add virtualization support
 #DISTRO_FEATURES_append = " virtualization aufs kvm"
 
 # timezone
 DEFAULT_TIMEZONE = "Europe/Moscow"
-
 # psplash
-IMAGE_INSTALL_append = " psplash"
-
+#IMAGE_INSTALL:append = " psplash"
 # kernel:
-PREFERRED_VERSION_linux-raspberrypi = "5.10.%"
-
+PREFERRED_VERSION_linux-raspberrypi = "5.15.%"
 # This sets machine:
 MACHINE ??= "raspberrypi4-64"
-
 # disable splash
 DISABLE_SPLASH = "1"
-
 # video camera support
 VIDEO_CAMERA = "1"
-
 # disable boot logo
 DISABLE_RPI_BOOT_LOGO = "1"
-
 # HDMI 0 (from recipes-bsp/rpi-config_git.bbappend)
 CONFIG_HDMI_0 = "1"
 
 #IMAGE_FSTYPES ?= "tar.bz2 ext3 rpi-sdimg"
 IMAGE_FSTYPES ?= "rpi-sdimg"
 
-DISTRO_FEATURES_append += "bluez5"
+VC4DTBO ?= "vc4-kms-v3d"
+PACKAGECONFIG:append:pn-qtbase = " eglfs "
+
+DISTRO_FEATURES:append = "bluez5"
 
 # remove
-DISTRO_FEATURES_remove = "x11"
+DISTRO_FEATURES:remove = "x11"
 
 # size memory GPU for Raspberry Pi
 GPU_MEM = "128"
@@ -79,7 +75,7 @@ SDKMACHINE ?= "x86_64"
 EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
 
 # Additional image features
-USER_CLASSES ?= "buildstats image-mklibs image-prelink"
+USER_CLASSES = "buildstats"
 
 INHERIT += "rm_work"
 
@@ -138,7 +134,7 @@ BB_DISKMON_DIRS ??= "\
 #
 # By default native qemu will build with a builtin VNC server where graphical output can be
 # seen. The line below enables the SDL UI frontend too.
-PACKAGECONFIG_append_pn-qemu-system-native = " sdl"
+#PACKAGECONFIG_append_pn-qemu-system-native = " sdl"
 # By default libsdl2-native will be built, if you want to use your host's libSDL instead of 
 # the minimal libsdl built by libsdl2-native then uncomment the ASSUME_PROVIDED line below.
 #ASSUME_PROVIDED += "libsdl2-native"
@@ -160,4 +156,4 @@ PACKAGECONFIG_append_pn-qemu-system-native = " sdl"
 # CONF_VERSION is increased each time build/conf/ changes incompatibly and is used to
 # track the version of this file when it was generated. This can safely be ignored if
 # this doesn't mean anything to you.
-CONF_VERSION = "1"
+CONF_VERSION = "2"
