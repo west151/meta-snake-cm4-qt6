@@ -9,7 +9,7 @@ inherit cmake pkgconfig
 
 #SRCREV = "${AUTOREV}"
 SRCREV = "509c8f4c91a156420d137b28965d21ef40e6142d"
-SRC_URI = "git://github.com/mossmann/hackrf.git;branch=master"
+SRC_URI = "https://github.com/mossmann/hackrf.git;branch=master"
 
 S = "${WORKDIR}/git/host"
 
