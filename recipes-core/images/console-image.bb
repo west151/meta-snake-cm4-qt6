@@ -107,7 +107,6 @@ SDR = " \
     libfftwf \
     fftw-dev \
     libhackrf \
-    rtl-sdr \
 "
 
 GPS = " \
@@ -189,6 +188,8 @@ IMAGE_INSTALL += " \
     ${TSLIB_DEV} \
     ${OPENMP} \
     ${OPENMP_DEV} \
+    ${GPS} \
+    ${SDR} \
     ${MQTT} \
     ${MQTT_DEV} \
     ${QT6_PKGS} \
