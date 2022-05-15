@@ -171,9 +171,7 @@ QT6_PKGS = " \
     qtinterfaceframework \
     qtapplicationmanager \
     qtdeviceutilities \
-    qtwebview \
     qtlanguageserver \
-    qtwebengine \
 "
 
 IMAGE_INSTALL += " \
