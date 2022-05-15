@@ -103,7 +103,6 @@ TSLIB_DEV = " \
 "
 
 SDR = " \
-    asn1c \
     libfftwf \
     fftw-dev \
     libhackrf \
